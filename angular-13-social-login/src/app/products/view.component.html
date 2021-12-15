@@ -1,0 +1,32 @@
+<div class="container">
+	<h5 class="text-center">PRODUCT DETAILS</h5>
+	<div class="table-responsive">
+		<table class="table table-bordered p-0 m-0">
+			<tbody>
+				<tr scope="row">
+					<th>ID</th>
+					<td>{{ product?.id }}</td>
+				</tr>
+				<tr scope="row">
+					<th>Name</th>
+					<td>{{ product?.name }}</td>
+				</tr>
+				<tr scope="row">
+					<th>Description</th>
+					<td>{{ product?.description }}</td>
+				</tr>
+				<tr scope="row">
+					<th>Version</th>
+					<td>{{ product?.version }}</td>
+				</tr>
+				<tr scope="row">
+					<th>Edition</th>
+					<td>{{ product?.edition }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="d-flex">
+		<a href="#" routerLink="/products/list" class="btn btn-primary mt-2 w-100">Back</a>
+	</div>
+</div>

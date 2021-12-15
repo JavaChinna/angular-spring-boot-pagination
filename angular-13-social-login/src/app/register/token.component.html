@@ -1,0 +1,24 @@
+<div class="col-md-12">
+	<div class="card card-container">
+		<img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+		<div class="form-group" *ngIf="status == tokenStatus.VALID">
+			<div class="alert alert-success" role="alert">Email verified successfully. Please login.</div>
+		</div>
+		<div class="form-group" *ngIf="status == tokenStatus.EXPIRED">
+			<div class="alert alert-danger" role="alert">Link Expired!</div>
+			<button class="btn btn-primary btn-block" (click)="resendToken()">Re-send Verification Email</button>
+		</div>
+		<div class="form-group" *ngIf="status == tokenStatus.SENDING">
+			<div class="alert alert-info" role="alert">Sending mail...</div>
+		</div>
+		<div class="form-group" *ngIf="status == tokenStatus.SENT">
+			<div class="alert alert-info" role="alert">Sent verification email</div>
+		</div>
+		<div class="form-group" *ngIf="status == tokenStatus.INVALID">
+			<div class="alert alert-danger" role="alert">Invalid Link</div>
+		</div>
+		<div class="form-group" *ngIf="errorMessage">
+			<div class="alert alert-danger" role="alert">{{errorMessage}}</div>
+		</div>
+	</div>
+</div>

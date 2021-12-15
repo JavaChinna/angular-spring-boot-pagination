@@ -1,0 +1,54 @@
+<div class="card card-container form">
+	<h5 class="text-center">{{ id ? 'Edit' : 'Add'}} Product</h5>
+	<div class="row">
+		<form [formGroup]="form" (ngSubmit)="onSubmit()" class="col s12">
+			<div class="row">
+				<div class="col s12">
+					<label for="name">Name</label> <input type="text" class="form-control" name="name" formControlName="name" />
+					<div class="alert-danger">
+						<div *ngIf="form.controls.name.touched && form.controls.name.errors?.required">* Required</div>
+						<div *ngIf="form.controls.name.touched && form.controls.name.errors?.minlength">Minimum length is {{form.controls.name.errors?.minlength.requiredLength}}
+							and actual is {{form.controls.name.errors?.minlength.actualLength}}</div>
+						<div *ngIf="form.controls.name.touched && form.controls.name.errors?.maxlength">Maximum length is {{form.controls.name.errors?.maxlength.requiredLength}}
+							and actual is {{form.controls.name.errors?.maxlength.actualLength}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label for="description">Description</label> <input type="text" class="form-control" name="description" formControlName="description" />
+					<div class="alert-danger">
+						<div *ngIf="form.controls.description.touched && form.controls.description.errors?.required">* Required</div>
+						<div *ngIf="form.controls.description.touched && form.controls.description.errors?.minlength">Minimum length is
+							{{form.controls.description.errors?.minlength.requiredLength}} and actual is {{form.controls.description.errors?.minlength.actualLength}}</div>
+						<div *ngIf="form.controls.description.touched && form.controls.description.errors?.maxlength">Maximum length is
+							{{form.controls.description.errors?.maxlength.requiredLength}} and actual is {{form.controls.description.errors?.maxlength.actualLength}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label for="version">Version</label> <input type="text" class="form-control" name="version" formControlName="version" />
+					<div class="alert-danger">
+						<div *ngIf="form.controls.version.touched && form.controls.version.errors?.required">* Required</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<label for="edition">Edition</label> <input type="text" class="form-control" name="edition" formControlName="edition" />
+					<div class="alert-danger">
+						<div *ngIf="form.controls.edition.touched && form.controls.edition.errors?.maxlength">Maximum length is
+							{{form.controls.edition.errors?.maxlength.requiredLength}} and actual is {{form.controls.edition.errors?.maxlength.actualLength}}</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="d-flex gap-2">
+				<a href="#" routerLink="/products/list" class="btn btn-secondary w-100">Cancel</a>
+				<button class="btn btn-primary w-100" [disabled]="form.pristine || form.invalid">{{ id ? 'Update' : 'Create'}}</button>
+			</div>
+			<div class="alert alert-warning" *ngIf="errorMessage">Failed: {{ errorMessage }}</div>
+		</form>
+	</div>
+</div>

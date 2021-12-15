@@ -1,0 +1,32 @@
+<div id="app">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<a class="navbar-brand p-0" href="/">
+			<img src="/assets/img/logo.png" width="200" height="50" alt="Sirius Consult AG">
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav me-auto mb-2 mb-md-0" routerLinkActive="active">
+				<li class="nav-item"><a href="/home" class="nav-link" routerLink="home">Home</a></li>
+				<li class="nav-item" *ngIf="showAdminBoard"><a href="/admin" class="nav-link" routerLink="admin">Admin Board</a></li>
+				<li class="nav-item" *ngIf="showModeratorBoard"><a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a></li>
+				<li class="nav-item"><a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a></li>
+				<li class="nav-item"><a href="/order" class="nav-link" *ngIf="isLoggedIn" routerLink="order">Order</a></li>
+				<li class="nav-item" *ngIf="showAdminBoard"><a href="/products/list" class="nav-link" *ngIf="isLoggedIn" routerLink="products">Products</a></li>
+			</ul>
+			<ul class="navbar-nav ms-auto  mb-2 mb-md-0" *ngIf="!isLoggedIn">
+				<li class="nav-item"><a href="/register" class="nav-link" routerLink="register">Sign Up</a></li>
+				<li class="nav-item"><a href="/login" class="nav-link" routerLink="login">Login</a></li>
+			</ul>
+			<ul class="navbar-nav ms-auto  mb-2 mb-md-0" *ngIf="isLoggedIn">
+				<li class="nav-item"><a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a></li>
+				<li class="nav-item"><a href class="nav-link" (click)="logout()">LogOut</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<router-outlet></router-outlet>
+	</div>
+</div>
