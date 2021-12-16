@@ -17,11 +17,11 @@
 			</thead>
 			<tbody>
 				<tr scope="row" *ngFor="let product of products">
-					<td>{{ product.id }}</td>
-					<td>{{ product.name }}</td>
-					<td>{{ product.description}}</td>
-					<td>{{ product.version }}</td>
-					<td>{{ product.edition }}</td>
+					<td>{{ product?.id }}</td>
+					<td>{{ product?.name }}</td>
+					<td>{{ product?.description}}</td>
+					<td>{{ product?.version }}</td>
+					<td>{{ product?.edition }}</td>
 					<td><a href="#" [routerLink]="['/products/', product.id, 'view']" class="btn btn-info m-1">View</a> <a href="#"
 							[routerLink]="['/products/', product.id, 'edit']" class="btn btn-primary m-1">Edit</a>
 						<button type="button" (click)="deleteProduct(product.id)" class="btn btn-danger m-1">Delete</button></td>
